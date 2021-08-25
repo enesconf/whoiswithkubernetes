@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whois-deployment
+spec:
+  selector:
+    matchLabels:
+      app: whoisapp
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: whoisapp
+    spec:
+     containers:
+        - name: whoisapp
+          image: enesplus/whois:latest
+          ports:
+          - containerPort: 5000
